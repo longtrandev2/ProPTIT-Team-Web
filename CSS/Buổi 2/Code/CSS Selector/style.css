@@ -1,2 +1,6 @@
-p { color: blue; }
-div { background-color: magenta; }
+.other2{
+  color: yellow;
+}
+.other {
+  color: red !important;
+}
