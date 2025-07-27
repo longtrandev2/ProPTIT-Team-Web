@@ -314,6 +314,29 @@ align-content: space-between
 ![alt text](img/ex26.png)
 align-content: space-around
 ![alt text](img/ex27.png)
+### Cho items
+| Thuộc tính    | Mô tả                                                    | Giá trị phổ biến & Ý nghĩa                                                           |
+| ------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `order`       | Sắp xếp lại thứ tự của phần tử so với thứ tự HTML        | Mặc định `0`, số nhỏ đứng trước                                                      |
+| `flex-grow`   | Item có giãn ra không nếu dư không gian                  | `0` (mặc định: không giãn), `1` (giãn bằng nhau), v.v.                               |
+| `flex-shrink` | Item có co lại không nếu thiếu không gian                | `1` (mặc định), `0` (không co)                                                       |
+| `flex-basis`  | Kích thước ban đầu của item                              | `auto` (dựa theo content), `100px`, `50%`, v.v.                                      |
+| `flex`        | Gộp 3 cái trên: `flex-grow`, `flex-shrink`, `flex-basis` | VD: `flex: 1 1 auto`                                                                 |
+| `align-self`  | Ghi đè `align-items` chỉ cho item đó                     | `auto` (theo align-items), `flex-start`, `flex-end`, `center`, `baseline`, `stretch` |
+
+### Default
+| Thuộc tính             | Giá trị mặc định                            | Ý nghĩa mặc định khi không set gì                                     |
+| ---------------------- | ------------------------------------------- | --------------------------------------------------------------------- |
+| `display`              | `block` *(trừ khi bạn set `display: flex`)* | Không phải Flexbox cho đến khi bạn set `display: flex`                |
+| `flex-direction`       | `row`                                       | Item sắp xếp **theo hàng ngang từ trái sang phải**                    |
+| `flex-wrap`            | `nowrap`                                    | Các item **không được xuống dòng**, bị ép trên 1 dòng                 |
+| `justify-content`      | `flex-start`                                | Các item được **canh trái** theo trục chính                           |
+| `align-items`          | `stretch`                                   | Các item sẽ **kéo giãn** theo chiều **cross axis**                    |
+| `align-content`        | `stretch`                                   | Khi có nhiều dòng, các dòng cũng sẽ **kéo giãn** để lấp đầy container |
+| `flex-grow` *(item)*   | `0`                                         | Item **không giãn ra** để chiếm thêm không gian                       |
+| `flex-shrink` *(item)* | `1`                                         | Item **co lại nếu thiếu chỗ**                                         |
+| `flex-basis` *(item)*  | `auto`                                      | Kích thước ban đầu của item là **nội dung hoặc kích thước đã set**    |
+
 # Grid, GridView,...
 CSS Grid là hệ thống bố cục 2 chiều (hàng và cột), mạnh mẽ và hiện đại nhất của CSS.
 
@@ -734,4 +757,107 @@ Hoặc có thể thay đổi kích thước font chữ trên trang web tương �
 ```
 # Phần 3: Style 1 số thành phần cơ bản
 # Dropdowns
+## Basic Dropdowns
+```html
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+
+<div class="dropdown">
+  <span>Mouse over me</span>
+  <div class="dropdown-content">
+    <p>Hello World!</p>
+  </div>
+</div>
+```
+- **Explain**:
+**`HTML)`** Sử dụng bất kỳ phần tử nào để mở nội dung thả xuống, ví dụ như phần tử `<span>` hoặc `<button>`.
+
+Sử dụng phần tử chứa (như `<div>`) để tạo nội dung thả xuống và thêm bất kỳ nội dung nào bạn muốn vào bên trong.
+
+Quấn phần tử `<div>` quanh các phần tử khác để định vị nội dung thả xuống chính xác bằng CSS.
+
+**`CSS)`** Lớp này `.dropdown` sử dụng `position:relative`, điều này là cần thiết khi chúng ta muốn nội dung thả xuống được đặt ngay bên dưới nút thả xuống (sử dụng `position:absolute`).
+
+Lớp này `.dropdown-content` chứa nội dung menu thả xuống thực tế. Mặc định, nội dung này bị ẩn và sẽ hiển thị khi di chuột qua (xem bên dưới). Lưu ý, giá trị `min-width` được đặt là 160px. Bạn có thể tùy ý thay đổi. Mẹo: Nếu bạn muốn chiều rộng của nội dung menu thả xuống bằng chiều rộng của nút thả xuống, hãy đặt giá trị `width` thành 100% (và `overflow:auto` để cho phép cuộn trên màn hình nhỏ).
+
+Thay vì sử dụng đường viền, chúng tôi đã sử dụng `box-shadow` thuộc tính CSS để làm cho menu thả xuống trông giống như một "thẻ".
+
+Bộ `:hover` chọn được sử dụng để hiển thị menu thả xuống khi người dùng di chuyển chuột qua nút thả xuống.
+```html 
+<style>
+/* Style The Dropdown Button */
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+</style>
+
+<div class="dropdown">
+  <button class="dropbtn">Dropdown</button>
+  <div class="dropdown-content">
+    <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+  </div>
+</div>
+```
 # Forms
