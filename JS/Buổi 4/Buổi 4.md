@@ -1014,7 +1014,7 @@ const person = {
   name: "Remuru Tempest",
   age: 24,
 };
-console.log(Object.keys(person));
+console.log(Object.values(person));
 //--> ["Remuru Tempest", 24]
 ```
 
@@ -1802,7 +1802,7 @@ function tag(strings, ...expressions) {
 ```
 ## Destructuring, Rest Parameter, Spread
 ### Destructuring javascript là gì?
-Destructuring là một cú pháp cho phép bạn gán các thuộc tính của một Object hoặc một Array. Điều này có thể làm giảm đáng kể các dòng mã cần thiết để thao tác dữ liệu trong các cấu trúc này. Có hai loại Destructuring: **Destructuring Objects** và **Destructuring Arrays **
+Destructuring là một cú pháp cho phép bạn gán các thuộc tính của một Object hoặc một Array. Điều này có thể làm giảm đáng kể các dòng mã cần thiết để thao tác dữ liệu trong các cấu trúc này. Có hai loại Destructuring: **Destructuring Objects** và **Destructuring Arrays**
 #### Destructuring Objects 
 Destructuring Objects cho phép bạn tạo ra một hay nhiều  **new variables**  sử dụng những property của một Objects. Xem ví dụ dưới đây:
 ```js
