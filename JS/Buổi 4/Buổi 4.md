@@ -1973,7 +1973,7 @@ Với DOM, JavaScript được tất cả sức mạnh cần thiết để tạo
 - JavaScript có thể thêm các yếu tố HTML mới và các thuộc tính
 - JavaScript có thể phản ứng với tất cả các sự kiện HTML hiện trong trang
 - JavaScript có thể tạo ra các sự kiện HTML mới trong trang
-## HTML DOm
+## HTML Dom
 HTML DOM là một chuẩn mô hình object và programming interface cho HTML. nó định nghĩa:
 
 -   HTML elements như là objects
@@ -1998,6 +1998,7 @@ HTML DOM là một tiêu chuẩn cho phép bạn thực hiện những công vi�
 - Trong các nút anh em, nút đầu tiên được gọi là con cả (firstChild) và nút cuối cùng là con út (lastChild).
 
 ![alt text](../img/rel.png)
+![alt text](img/const.png)
 
 - Nút gốc là `<html>`.
 - 2 nút anh em `<head>` và `<body>` là anh em vì đều là nút con của `<html>`.

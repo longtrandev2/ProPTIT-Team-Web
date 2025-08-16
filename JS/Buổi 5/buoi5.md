@@ -408,7 +408,7 @@ POST /api/users
 Content-Type: application/json
 
 {
-  "name": "Toàn",
+  "name": "Long",
   "age": 20
 }
 
@@ -537,7 +537,7 @@ Postman là một phần mềm giúp chúng ta:
 Có thể được gửi kém theo HTTP request
 Ví dụ:
 ```js
-document.cookie = "username=Toan; expires=Fri, 31 Dec 2025 23:59:59 UTC; path=/";
+document.cookie = "username=Long; expires=Fri, 31 Dec 2025 23:59:59 UTC; path=/";
 ```
 Gửi cookie tới server (tự động khi gọi API nếu withCredentials = true)
 Ưu điểm:
