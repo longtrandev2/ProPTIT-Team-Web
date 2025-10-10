@@ -1,0 +1,10 @@
+.header {
+    margin-top: 0px;
+    text-align: center;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 200px;
+    background: #e1ab22;
+    position: sticky;
+}
